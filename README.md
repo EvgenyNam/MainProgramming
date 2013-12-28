@@ -1,4 +1,7 @@
 MainProgramming
 ===============
 
-This repository contains my personal hobby projects.
+This repository contains my personal hobby projects. The current folders are:
+
+-Arduino
+-Batch
