@@ -1,1 +1,3 @@
-Current: extract EXIF info
+Current:  <br>
+-Extract EXIF info from jpeg <br>
+-Scan folder for jpeg
