@@ -1,0 +1,1 @@
+Current: extract EXIF info
