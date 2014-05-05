@@ -1,0 +1,265 @@
+<!-- try to incorporate some javascript into it -->
+<!--[if IE]>
+	<link href="ie.css" rel="stylesheet" type="text/css" />
+<![endif]-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Hello World</title>
+	<link href="alignment.css" rel="stylesheet" type="text/css" />
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
+	<script>
+	$(document).ready(function() {
+
+			//Variable for number of work term entries
+			var number_work = 4;
+
+			//Initial condition for the hover 
+			$(".text_preview").css('display','none');
+
+			//These are button hovers!
+			$("#button1").hover(
+				function(){
+					//First setting the header image on the hover
+					$(".headerimage").attr('src', 'images/headerprogramming.png');
+
+					//Now toggling the animation of the header
+					//$(".headerimage").toggleClass('headerimage_change');
+
+					//The plan is, have the current image play css animation of fading out 1 > 0
+					//And whatever is being hovered upon
+
+
+					$(".text_preview").css('display','none');
+					$("#HomeText").css('display','block');
+
+					//$(".text_preview").toggleClass("text_preview_change");
+					$(".box").toggleClass("box_change");
+				}
+			);
+			$("#button2").hover(
+				function(){
+
+					$(".headerimage").attr('src', 'images/headerabout.png');
+					$(".text_preview").css('display','none');
+					$("#AboutTextPreview").css('display','block');
+					$(".box").toggleClass("box_change");
+				}
+			);
+			$("#button3").hover(
+				function(){
+					$(".headerimage").attr('src', 'images/headerprogramming.png');
+					$(".text_preview").css('display','none');
+					$("#ProgrammingTextPreview").css('display','block');
+					$(".box").toggleClass("box_change");
+				}
+			);
+			$("#button4").hover(
+				function(){
+					$(".headerimage").attr('src', 'images/headercg.png');
+					$(".text_preview").css('display','none');
+					$("#CgTextPreview").css('display','block');
+					$(".box").toggleClass("box_change");
+				}
+			);
+			$("#button5").hover(
+				function(){
+					$(".headerimage").attr('src', 'images/headercontact.png');
+					$(".text_preview").css('display','none');
+					$("#ContactTextPreview").css('display','block');
+					$(".box").toggleClass("box_change");
+				}
+			);
+			$(".menuitem").mouseleave(
+				function(){
+					$(".text_preview").css('display','none');
+					$(".text_preview").toggleClass("text_preview_change");
+				}
+			);
+
+			//These are button clicks!!
+
+			$("#button1").click(
+				function(){
+					location.href='index.html';
+				}
+			);
+
+			$("#button2").click(
+				function(){
+					location.href='About.html';
+				}
+			);
+
+			$("#button3").click(
+				function(){
+					location.href='Programming.html';
+				}
+			);
+
+			$("#button4").click(
+				function(){
+					location.href='CG.html';
+				}
+			);
+
+			$("#button5").click(
+				function(){
+					location.href='Contact.html';
+				}
+			);
+
+			$("#workterm1").click(
+				function(){
+					var current_image = $('#workimage').attr('src');
+					var string_image = current_image;
+					var start_index;
+
+					current_image = current_image.substring(current_image.indexOf('/w')+2, current_image.indexOf('.'));
+					start_index = string_image.indexOf(current_image);
+
+					//Convert it from string to a number
+					current_image = Number(current_image);
+					current_image--;
+
+					if (current_image<1) {
+						current_image = number_work;
+					}
+
+					var new_image = string_image.substring(0, start_index) + String(current_image) + '.png';
+					$('#workimage').attr('src', new_image);
+				}
+			);
+			
+			$("#workterm2").click(
+				function(){
+					var current_image = $('#workimage').attr('src');
+					var string_image = current_image;
+					var start_index;
+
+					current_image = current_image.substring(current_image.indexOf('/w')+2, current_image.indexOf('.'));
+					start_index = string_image.indexOf(current_image);
+
+					//Convert it from string to a number
+					current_image = Number(current_image);
+					current_image++;
+
+					if (current_image>number_work) {
+						current_image = 1;
+					}
+
+					var new_image = string_image.substring(0, start_index) + String(current_image) + '.png';
+					$('#workimage').attr('src', new_image);
+				}
+			);
+	});
+
+
+	</script>
+</head>
+
+<body>
+	<div class="wrapper">
+		<br>
+		<br>
+		<img class="headerimage" src="images/header.png">
+		<br>
+		<div class="menubar">
+			<ul>
+			<li><a href="#" class="menuitem" id='button1'>Home</a></li>
+			<li><a href="#" class="menuitem" id='button2'>About Me</a></li>
+			<li><a href="#" class="menuitem" id='button3'>Programming</a></li>
+			<li><a href="#" class="menuitem" id='button4'>CG</a></li>
+			<li><a href="#" class="menuitem" id='button5' style="background-image: none;">Contact</a></li>
+			</ul>
+		</div>
+
+		<!-- This is a box, for preview -->
+		<div class="box">
+			<!-- This div style wraps text, with a width of 800 pixels and centers it around -->
+			<div class="text_preview" id="HomeText" style="width:800px; margin:0 auto;">
+				<p>Home page</p>
+			</div>
+			<div class="text_preview" id="AboutTextPreview" style="width:800px; margin:0 auto;">
+				<p>My current occupation and hobbies</p>
+			</div>
+			<div class="text_preview" id="ProgrammingTextPreview" style="width:800px; margin:0 auto;">
+				<p>Programming projects</p>
+			</div>
+			<div class="text_preview" id="CgTextPreview" style="width:800px; margin:0 auto;">
+				<p>Graphics projects</p>
+			</div>
+			<div class="text_preview" id="ContactTextPreview" style="width:800px; margin:0 auto;">
+				<p>Contact me</p>
+			</div>
+		</div>
+
+		<!-- This is a box for page's main content -->
+		<div class="box_image" id="box_article_programming">
+			<div class="text content_home" id="maincontent" style="width:800px; margin:0 auto;">
+				<div class="menubar">
+					<ul class="imagegallery">
+						<li><a class="menuitem" id='three1'><b>An arduino directional detection</b></a></li>
+					</ul>
+				</div>
+				<img id="workimage" src="storageProgramming/arduino.png" style="width:800px;">
+				<p>
+					I constructed the circuit using a few electret microphones and amplified their analog signal using LM386 opamp. The idea was that the microphone's whose readings went above a certain threshold, was the microphone that heard the noise first. 
+
+					<br>
+					<br>
+
+					With 2 microphones, it is possible to determine the 'symmetrical' direction of sound. However due to the sample rate of arduino, the distance between microphones needs to be greater than ~1 meter. 
+					<br>
+					(C)
+				</p>
+			</div>
+		</div>
+
+		<div class="box_image" id="box_article_programming">
+			<div class="text content_home" id="maincontent" style="width:800px; margin:0 auto;">
+				<div class="menubar">
+					<ul class="imagegallery">
+						<li><a class="menuitem" id='three1'><b>Local image mapper</b></a></li>
+					</ul>
+				</div>
+				<img id="workimage" src="storageProgramming/maps.png" style="width:800px;">
+				<p>
+					I started playing around with Maps API, just to graph existing local images onto a map.
+					Just out of interest to quickly analyze locations without existing services such as Panoramio
+
+					<br>
+					<br>
+
+					Right now there are just markers, which still need the correct EXIF geolocation data
+					<br>
+					(HTML, JavaScript)
+				</p>
+			</div>
+		</div>
+
+		<div class="box_image" id="box_article_programming">
+			<div class="text content_home" id="maincontent" style="width:800px; margin:0 auto;">
+				<div class="menubar">
+					<ul class="imagegallery">
+						<li><a class="menuitem" id='three1'><b></b></a></li>
+					</ul>
+				</div>
+				<p>
+					Check out my GitHub for more
+				</p>
+			</div>
+		</div>
+
+		<br>
+		<div class="footer">© Evgeny Nam</div>
+	</div>
+
+
+	<script src="local:///chrome/webworks.js" type="text/javascript"></script>
+	<script type="text/javascript" src="Java.js"></script>
+</body>
+
+</html>

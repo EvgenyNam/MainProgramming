@@ -1,0 +1,213 @@
+<!-- try to incorporate some javascript into it -->
+<!--[if IE]>
+	<link href="ie.css" rel="stylesheet" type="text/css" />
+<![endif]-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Hello World</title>
+	<link href="alignment.css" rel="stylesheet" type="text/css" />
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
+	<script>
+	$(document).ready(function() {
+			//Initial condition for the hover 
+			$(".text_preview").css('display','none');
+
+			//These are button hovers!
+			$("#button1").hover(
+				function(){
+					//First setting the header image on the hover
+					$(".headerimage").attr('src', 'images/headercontact.png');
+
+					//Now toggling the animation of the header
+					//$(".headerimage").toggleClass('headerimage_change');
+
+					//The plan is, have the current image play css animation of fading out 1 > 0
+					//And whatever is being hovered upon
+
+
+					$(".text_preview").css('display','none');
+					$("#HomeText").css('display','block');
+
+					//$(".text_preview").toggleClass("text_preview_change");
+					$(".box").toggleClass("box_change");
+				}
+			);
+			$("#button2").hover(
+				function(){
+
+					$(".headerimage").attr('src', 'images/headerabout.png');
+					$(".text_preview").css('display','none');
+					$("#AboutTextPreview").css('display','block');
+					$(".box").toggleClass("box_change");
+				}
+			);
+			$("#button3").hover(
+				function(){
+					$(".headerimage").attr('src', 'images/headerprogramming.png');
+					$(".text_preview").css('display','none');
+					$("#ProgrammingTextPreview").css('display','block');
+					$(".box").toggleClass("box_change");
+				}
+			);
+			$("#button4").hover(
+				function(){
+					$(".headerimage").attr('src', 'images/headercg.png');
+					$(".text_preview").css('display','none');
+					$("#CgTextPreview").css('display','block');
+					$(".box").toggleClass("box_change");
+				}
+			);
+			$("#button5").hover(
+				function(){
+					$(".headerimage").attr('src', 'images/headercontact.png');
+					$(".text_preview").css('display','none');
+					$("#ContactTextPreview").css('display','block');
+					$(".box").toggleClass("box_change");
+				}
+			);
+			$(".menuitem").mouseleave(
+				function(){
+					$(".text_preview").css('display','none');
+					$(".text_preview").toggleClass("text_preview_change");
+				}
+			);
+
+			//These are button clicks!!
+			/*
+			$("#button1").click(
+				function(){
+
+					//First change the height of the containing box 
+					$("#box_home").toggleClass("box_article_change");
+
+					//Then change the opacity of every containing element
+					$(".content_home").toggleClass("content_home_changed");
+				}
+			);
+
+			//Just testing at this point, the crossfading images 
+			$('.imageTest').hover(
+				function(){
+					//$(".imageTest").toggleClass("imageTestChange");
+					$(".imageTest").addClass("imageTestFade");
+				}
+			);*/
+
+			$("#button1").click(
+				function(){
+					location.href='index.html';
+				}
+			);
+
+			$("#button2").click(
+				function(){
+					location.href='About.html';
+				}
+			);
+
+			$("#button3").click(
+				function(){
+					location.href='Programming.html';
+				}
+			);
+
+			$("#button4").click(
+				function(){
+					location.href='CG.html';
+				}
+			);
+
+			$("#button5").click(
+				function(){
+					location.href='Contact.html';
+				}
+			);
+	});
+
+
+	</script>
+</head>
+
+<body>
+	<div class="wrapper">
+		<br>
+		<br>
+		<img class="headerimage" src="images/header.png">
+		<br>
+		<div class="menubar">
+			<ul>
+			<li><a href="#" class="menuitem" id='button1'>Home</a></li>
+			<li><a href="#" class="menuitem" id='button2'>About Me</a></li>
+			<li><a href="#" class="menuitem" id='button3'>Programming</a></li>
+			<li><a href="#" class="menuitem" id='button4'>CG</a></li>
+			<li><a href="#" class="menuitem" id='button5' style="background-image: none;">Contact</a></li>
+			</ul>
+
+			<!--
+			<div align="center">
+				<button class='button' id='button1' type="button" onclick="printStuff()">Hello I am a button</button>
+				<button class='button' id='button2' type="button" onclick="location.href='index2.html';">About Me</button>
+				<button class='button' id='button3' type="button" onclick="location.href='index2.html';">Programming</button>
+				<button class='button' id='button4' type="button" onclick="location.href='index2.html';">CG</button>
+				<button class='button' id='button5' type="button" onclick="location.href='index2.html';">Contact</button>
+			</div>
+			-->
+		</div>
+
+		<!-- This is a box, for preview -->
+		<div class="box">
+			<!-- This div style wraps text, with a width of 800 pixels and centers it around -->
+			<div class="text_preview" id="HomeText" style="width:800px; margin:0 auto;">
+				<p>Home page</p>
+				<!--
+				<img class="imagePreview" id="imagePreview1" src="images/previewHome.png"> -->
+			</div>
+			<div class="text_preview" id="AboutTextPreview" style="width:800px; margin:0 auto;">
+				<p>My current occupation and hobbies</p>
+				<!--
+				<img class="imagePreview" id="imagePreview1" src="images/previewProgramming.png"> -->
+			</div>
+			<div class="text_preview" id="ProgrammingTextPreview" style="width:800px; margin:0 auto;">
+				<p>Programming projects</p>
+				<!--
+				<img class="imagePreview" id="imagePreview1" src="images/previewProgramming.png"> -->
+			</div>
+			<div class="text_preview" id="CgTextPreview" style="width:800px; margin:0 auto;">
+				<p>Graphics projects</p>
+				<!--
+				<img class="imagePreview" id="imagePreview1" src="images/testPreview2.png"> -->
+			</div>
+			<div class="text_preview" id="ContactTextPreview" style="width:800px; margin:0 auto;">
+				<p>Contact me</p>
+				<!--
+				<img class="imagePreview" id="imagePreview1" src="images/testPreview1.png"> -->
+			</div>
+		</div>
+
+		<!-- This is a box for page's main content -->
+		<div class="box_article" id="box_contact">
+			<div class="text content_home" id="maincontent" style="width:800px; margin:0 auto;">
+				<h1>Contact information</h1>
+				<p>
+					<br>
+					Please feel free to contact me at: <br>
+					<br>
+					<a href="mailto:evgeny.nam.contact@gmail.com">evgeny.nam.contact@gmail.com</a>
+				</p>
+			</div>
+			<!--<img class="imageTest"> -->
+			<!--<img class="imageTest2"> -->
+		</div>
+		<br>
+		<div class="footer">© Evgeny Nam</div>
+	</div>
+
+
+	<script src="local:///chrome/webworks.js" type="text/javascript"></script>
+	<script type="text/javascript" src="Java.js"></script>
+</body>
+
+</html>
