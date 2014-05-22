@@ -5,4 +5,7 @@ This repo contains some of the programming I do on the side. The current folders
 
 -Arduino <br>
 -Batch <br>
--C++
+-C++ <br>
+-Java <br>
+-MapsProject <br>
+-Website <br>
